@@ -1,0 +1,98 @@
+% 加载几何包并设置页面边距
+\usepackage[left=3cm, right=3cm]{geometry}
+
+% 数学环境设置
+\usepackage{amsmath}
+\numberwithin{equation}{section}
+\renewcommand\thesection{\arabic{section}}
+\allowdisplaybreaks[4]       % 多行公式中换页
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{dutchcal}
+
+% 图形和颜色
+\usepackage{tikz}
+\usepackage{color}
+\usepackage{graphicx}    % 插入图片
+
+% 字体设置
+\usepackage{times}
+\usepackage{mathptmx}
+
+% 页眉页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\makeatletter
+\def\headrule{%
+  \if@fancyplain\let\headrulewidth\plainheadrulewidth\fi%
+  \hrule\@height 0.5pt \@width\headwidth\vskip1.5pt%
+  \vskip-2\headrulewidth\vskip-1pt} % 上线为0.5pt
+\makeatother
+\setlength{\headheight}{14.48167pt} 
+\setlength{\voffset}{-1.14cm}
+\setlength{\topmargin}{0cm}
+\setlength{\headsep}{2.5cm}
+
+% 表格
+\usepackage{array}
+\usepackage{booktabs}  % 三线表
+
+% 图片标题设置
+\usepackage[font=small,labelsep=none]{caption}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\usepackage{caption}
+\captionsetup{font={small},labelsep=quad}
+
+% 国标Ref
+% \usepackage{cite}
+\usepackage[sort&compress]{gbt7714}
+\citestyle{numbers}
+
+% 超链接设置
+% \usepackage{hyperref}
+% \hypersetup{colorlinks=true,linkcolor=black}
+\usepackage[hidelinks]{hyperref}
+
+% 其他宏包
+\usepackage{appendix}
+\usepackage{tocloft} 
+\usepackage{titletoc}
+\usepackage{setspace}
+\usepackage{titlesec}
+\setstretch{1.25}
+
+% 标题格式设置
+% 设置section字体为黑体三号
+\titleformat{\section}{\heiti\zihao{3}\centering}{\thesection}{0.5em}{}[]
+% 设置subsection字体为黑体小三号
+\titleformat{\subsection}{\heiti\zihao{-3}}{\thesubsection}{0.5em}{}[]
+% 设置subsubsection字体为黑体四号
+\titleformat{\subsubsection}{\heiti\zihao{4}}{\thesubsubsection}{0.5em}{}[]
+%\titlespacing{\section}{0pt}{\baselineskip}{\baselineskip}
+%\titlespacing{\section}{0pt}{0pt}{\baselineskip}
+
+
+% 目录中标题格式设置
+% 目录中section的格式
+\titlecontents{section}[0pt]{\addvspace{0pt}\filright\heiti\zihao{4}}%
+               {\contentspush{\thecontentslabel \quad}}%
+               {}{\titlerule*[8pt]{.}\textnormal{\zihao{5}\rmfamily\contentspage}}
+% 目录中subsection的格式
+\titlecontents{subsection}[1em]{\addvspace{0pt}\filright\heiti\zihao{5}}%
+               {\contentspush{\thecontentslabel \quad}}%
+               {}{\titlerule*[8pt]{.}\textnormal{\zihao{5}\rmfamily\contentspage}}
+% 目录中subsubsection的格式
+\titlecontents{subsubsection}[2em]{\addvspace{0pt}\filright\songti\zihao{5}}%
+               {\contentspush{\thecontentslabel \quad}}%
+               {}{\titlerule*[8pt]{.}\textnormal{\zihao{5}\rmfamily\contentspage}}
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % 为目录中section补上引导点
+
+\renewcommand\contentsname{{目\quad 录}}
+
+% 自定义命令
+\newcommand*{\circled}[1]{\lower.7ex\hbox{\tikz\draw (0pt,0pt)%
+    circle (.5em) node {\makebox[1em][c]{\small #1}};}}
