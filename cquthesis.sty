@@ -78,16 +78,21 @@
 % 目录中标题格式设置
 % 目录中section的格式
 \titlecontents{section}[0pt]{\addvspace{0pt}\filright\heiti\zihao{4}}%
-               {\contentspush{\thecontentslabel \quad}}%
-               {}{\titlerule*[8pt]{.}\textnormal{\zihao{5}\rmfamily\contentspage}}
+  {\contentspush{\thecontentslabel\quad}}%
+  {}%
+  {{\textnormal{\zihao{5}\rmfamily\titlerule*[8pt]{.}}}\textnormal{\zihao{5}\rmfamily\contentspage}}
+
 % 目录中subsection的格式
 \titlecontents{subsection}[1em]{\addvspace{0pt}\filright\heiti\zihao{5}}%
-               {\contentspush{\thecontentslabel \quad}}%
-               {}{\titlerule*[8pt]{.}\textnormal{\zihao{5}\rmfamily\contentspage}}
+  {\contentspush{\thecontentslabel\quad}}%
+  {}%
+  {{\textnormal{\zihao{5}\rmfamily\titlerule*[8pt]{.}}}\textnormal{\zihao{5}\rmfamily\contentspage}}
+
 % 目录中subsubsection的格式
 \titlecontents{subsubsection}[2em]{\addvspace{0pt}\filright\songti\zihao{5}}%
-               {\contentspush{\thecontentslabel \quad}}%
-               {}{\titlerule*[8pt]{.}\textnormal{\zihao{5}\rmfamily\contentspage}}
+  {\contentspush{\thecontentslabel\quad}}%
+  {}%
+  {{\textnormal{\zihao{5}\rmfamily\titlerule*[8pt]{.}}}\textnormal{\zihao{5}\rmfamily\contentspage}}
 
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % 为目录中section补上引导点
 
