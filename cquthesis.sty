@@ -1,9 +1,13 @@
-% 加载几何包并设置页面边距
-\usepackage[left=3cm, right=3cm]{geometry}
+\usepackage[top=30mm,bottom=25mm,
+            left=25mm,right=25mm,
+            headsep=16mm,
+            footskip=15mm]{geometry}
 
 % 数学环境设置
 \usepackage{amsmath}
-\numberwithin{equation}{section}
+\numberwithin{figure}{section}    % 图编号与章节一致
+\numberwithin{equation}{section}  % 公式编号与章节一致
+\numberwithin{table}{section}     % 表编号与章节一致
 \renewcommand\thesection{\arabic{section}}
 \allowdisplaybreaks[4]       % 多行公式中换页
 \usepackage{amssymb}
@@ -14,10 +18,13 @@
 \usepackage{tikz}
 \usepackage{color}
 \usepackage{graphicx}    % 插入图片
+\usepackage{colortbl}
 
 % 字体设置
 \usepackage{times}
 \usepackage{mathptmx}
+\setCJKfamilyfont{heiti}{SimHei}      % 系统里没有 SimHei 就改成自己安装的黑体
+\newcommand{\HeiTi}{\CJKfamily{heiti}}
 
 % 页眉页脚
 \usepackage{fancyhdr}
@@ -30,24 +37,30 @@
   \hrule\@height 0.5pt \@width\headwidth\vskip1.5pt%
   \vskip-2\headrulewidth\vskip-1pt} % 上线为0.5pt
 \makeatother
-\setlength{\headheight}{14.48167pt} 
-\setlength{\voffset}{-1.14cm}
-\setlength{\topmargin}{0cm}
-\setlength{\headsep}{2.5cm}
+
+\makeatletter
+\renewcommand{\thesection}{\heiti\arabic{section}}
+\renewcommand{\thesubsection}{\heiti\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\heiti\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\makeatother
+
+% \setlength{\headheight}{14.48167pt} 
+% \setlength{\voffset}{-1.14cm}
+% \setlength{\topmargin}{0cm}
+% \setlength{\headsep}{2.5cm}
 
 % 表格
 \usepackage{array}
 \usepackage{booktabs}  % 三线表
+\usepackage{multirow}  % 合并单元格
+
 
 % 图片标题设置
-\usepackage[font=small,labelsep=none]{caption}
+\usepackage[font=small,labelsep=quad]{caption}
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
 \renewcommand{\thetable}{\thesection.\arabic{table}}
-\usepackage{caption}
-\captionsetup{font={small},labelsep=quad}
 
 % 国标Ref
-% \usepackage{cite}
 \usepackage[sort&compress]{gbt7714}
 % \citestyle{numbers}   %% 说明：给出的毕设模版和另外一个引用模版不同，这里参考引用模版进行修订
 
@@ -56,13 +69,20 @@
 % \hypersetup{colorlinks=true,linkcolor=black}
 \usepackage[hidelinks]{hyperref}
 
+% section后首行缩进2字符
+\usepackage{indentfirst}
+\setlength{\parindent}{2em} % 设置首行缩进
+
 % 其他宏包
+\usepackage{url} 
 \usepackage{appendix}
 \usepackage{tocloft} 
 \usepackage{titletoc}
 \usepackage{setspace}
 \usepackage{titlesec}
 \setstretch{1.25}
+% \setstretch{1.667}
+% \usepackage{etoolbox}
 
 % 标题格式设置
 % 设置section字体为黑体三号
@@ -71,9 +91,10 @@
 \titleformat{\subsection}{\heiti\zihao{-3}}{\thesubsection}{0.5em}{}[]
 % 设置subsubsection字体为黑体四号
 \titleformat{\subsubsection}{\heiti\zihao{4}}{\thesubsubsection}{0.5em}{}[]
-%\titlespacing{\section}{0pt}{\baselineskip}{\baselineskip}
-%\titlespacing{\section}{0pt}{0pt}{\baselineskip}
 
+% \titlespacing{\section}{0pt}{\baselineskip}{\baselineskip}
+\titlespacing*{\section}{0pt}{10.5pt}{10.5pt}
+\preto\section{\vspace*{-12pt}}
 
 % 目录中标题格式设置
 % 目录中section的格式

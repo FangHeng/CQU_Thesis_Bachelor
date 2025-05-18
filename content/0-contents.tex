@@ -1,11 +1,30 @@
-\newpage
-\fancyhead[LH]{ \songti\zihao{-5} 重庆大学本科学生毕业论文（设计）}
-\fancyhead[RH]{\songti\zihao{-5} 目录}
+\cleardoublepage
+% \newpage
 
+% % 页眉：单页印刷
+% \fancypagestyle{plain}{%
+%   \fancyhf{}%
+%   \fancyfoot[C]{\thepage}%
+%   \fancyhead[L]{\songti\zihao{-5} 重庆大学本科学生毕业论文（设计）}%
+%   \fancyhead[R]{\songti\zihao{-5} 目录}%
+%   \renewcommand{\headrulewidth}{0.5pt}%
+% }
 
+% 页眉：双页印刷
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\thepage}%
+  \fancyhead[CE]{\songti\zihao{-5} 重庆大学本科学生毕业论文（设计）}%
+  \fancyhead[CO]{\songti\zihao{-5} 目录}%
+  \renewcommand{\headrulewidth}{0.5pt}%
+}
+
+\pagestyle{plain}
 \begin{center}
-    {\tableofcontents
+    {
+    \tableofcontents
     \thispagestyle{fancy}
     }
 \end{center}
 \clearpage
+\pagestyle{fancy} 
