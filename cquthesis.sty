@@ -119,6 +119,17 @@
 
 \renewcommand\contentsname{{目\quad 录}}
 
+% 调整reference条目之间的间距
+\makeatletter
+\let\oldthebibliography=\thebibliography
+\let\endoldthebibliography=\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+  \begin{oldthebibliography}{#1}%
+    \setlength{\itemsep}{0pt}%  <-- 条目之间
+    \setlength{\parsep}{0pt}%   <-- 段落之间
+}{\end{oldthebibliography}}
+\makeatother
+
 % 自定义命令
 \newcommand*{\circled}[1]{\lower.7ex\hbox{\tikz\draw (0pt,0pt)%
     circle (.5em) node {\makebox[1em][c]{\small #1}};}}
